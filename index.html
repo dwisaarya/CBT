@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT SMAN 1 Pangkalan Banteng</title>
+    
+    <!-- Memanggil file CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Memanggil file JS (Wajib pakai type="module" untuk Firebase) -->
+    <script type="module" src="app.js" defer></script>
+</head>
+<body>
+
+    <!-- Layar Login -->
+    <div id="login-screen" class="screen active">
+        <div class="box">
+            <h2>Portal Ujian CBT</h2>
+            <p>Sistem Pengawasan Aktif (Anti-Contek)</p>
+            <input type="text" id="token-input" placeholder="Masukkan Token Ujian" autocomplete="off">
+            <button id="btn-login">Mulai Ujian</button>
+            <p id="login-error" class="error-msg"></p>
+            <p style="margin-top:15px; font-size:12px; color:#888;">Gunakan token <strong>DEMO</strong> untuk uji coba sistem.</p>
+        </div>
+    </div>
+
+    <!-- Layar Ujian -->
+    <div id="exam-screen" class="screen">
+        <div class="header-ujian">
+            <span>🔴 Jangan keluar dari mode layar penuh!</span>
+            <span id="warning-counter">Pelanggaran: 0/3</span>
+        </div>
+        <div class="iframe-container">
+            <iframe id="google-form-frame" src="" sandbox="allow-scripts allow-same-origin allow-forms">Memuat...</iframe>
+        </div>
+    </div>
+
+    <!-- Layar Peringatan Blokir -->
+    <div id="warning-screen" class="screen">
+        <div class="box warning-box">
+            <h1 class="text-danger">🚨 UJIAN TERKUNCI 🚨</h1>
+            <p>Akses ujian Anda telah dihentikan oleh sistem karena terdeteksi melakukan kecurangan.</p>
+            <p id="warning-text" class="text-highlight"></p>
+            <button onclick="location.reload()">Kembali ke Halaman Awal</button>
+        </div>
+    </div>
+
+</body>
+</html>
